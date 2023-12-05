@@ -1,0 +1,33 @@
+{
+  "name": "tft-solver-ui-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/tft-solver-ui-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/tft-solver-ui-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "tft-solver-ui:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "tft-solver-ui:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "tft-solver-ui:serve-static"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/tft-solver-ui-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["tft-solver-ui"]
+}

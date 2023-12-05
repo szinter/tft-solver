@@ -1,0 +1,36 @@
+{
+  "name": "datasheet-parser",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/datasheet-parser/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/datasheet-parser",
+        "main": "packages/datasheet-parser/src/index.ts",
+        "tsConfig": "packages/datasheet-parser/tsconfig.lib.json",
+        "assets": ["packages/datasheet-parser/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/datasheet-parser/**/*.ts",
+          "packages/datasheet-parser/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/datasheet-parser/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}

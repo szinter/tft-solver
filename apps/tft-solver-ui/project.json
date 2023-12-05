@@ -1,0 +1,95 @@
+{
+  "name": "tft-solver-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "tft-solver",
+  "sourceRoot": "apps/tft-solver-ui/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/tft-solver-ui",
+        "index": "apps/tft-solver-ui/src/index.html",
+        "main": "apps/tft-solver-ui/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/tft-solver-ui/tsconfig.app.json",
+        "inlineStyleLanguage": "less",
+        "assets": [
+          "apps/tft-solver-ui/src/favicon.ico",
+          "apps/tft-solver-ui/src/assets"
+        ],
+        "styles": ["apps/tft-solver-ui/src/styles.less"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "tft-solver-ui:build:production"
+        },
+        "development": {
+          "buildTarget": "tft-solver-ui:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "tft-solver-ui:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/tft-solver-ui/**/*.ts",
+          "apps/tft-solver-ui/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/tft-solver-ui/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "tft-solver-ui:build"
+      }
+    }
+  }
+}

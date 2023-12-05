@@ -14,7 +14,17 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@tft-solver/champions-ui": ["packages/champion-ui/src/index.ts"],
+      "@tft-solver/chapion-trait-ui": [
+        "packages/champion-trait-ui/src/index.ts"
+      ],
+      "@tft-solver/datasheet-parser": [
+        "packages/datasheet-parser/src/index.ts"
+      ],
+      "@tft-solver/navigation-ui": ["packages/navigation-ui/src/index.ts"],
+      "@tft-solver/shared-ui": ["packages/shared-ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

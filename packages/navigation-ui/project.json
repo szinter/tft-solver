@@ -1,0 +1,27 @@
+{
+  "name": "navigation-ui",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/navigation-ui/src",
+  "prefix": "tft-solver",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/navigation-ui/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/navigation-ui/**/*.ts",
+          "packages/navigation-ui/**/*.html"
+        ]
+      }
+    }
+  }
+}
