@@ -1,5 +1,4 @@
-const rollOdds: Array<Array<Number>> =
-    [
+const rollOdds: Array<Array<Number>> = [
         [100, 0, 0, 0, 0,],
         [75, 25, 0, 0, 0,],
         [55, 30, 15, 0, 0,],

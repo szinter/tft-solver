@@ -5,6 +5,7 @@
   "scripts": {},
   "private": true,
   "dependencies": {
+    "@angular-architects/ddd": "^17.0.3",
     "@angular/animations": "~17.0.0",
     "@angular/common": "~17.0.0",
     "@angular/compiler": "~17.0.0",
